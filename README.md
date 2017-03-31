@@ -27,3 +27,9 @@ Available only in train.csv
 **is_duplicate** - the target variable
 
 Set to **1** if question1 and question2 have essentially the same meaning, and **0** otherwise.
+
+# Model
+
+## Example of tf–idf
+
+is here ... https://en.wikipedia.org/wiki/Tf%E2%80%93idf
