@@ -170,11 +170,6 @@ tf_idf_q2 <- tokens_q2 %>% bind_tf_idf(word2, q2, n2) %>%
 
 # TODO: from here
 
-ans <- df_idf_q1
-
-# ans <- tf_idf_q1[ , c("len_common_words", 
-#                       "ratio_commonality", 
-#                       "diff_len") := func(.SD), 
-#                   key = id1, 
-#                   .SDcols = c(colnames(tf_idf_q1))]
+ans <- tf_idf_q1[ , c("len_common_words", "ratio_commonality", "diff_len") := func(.SD),
+                  key = id1,  .SDcols = c(colnames(tf_idf_q1))]
 
