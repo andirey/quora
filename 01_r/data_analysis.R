@@ -170,53 +170,11 @@ tf_idf_q2 <- tokens_q2 %>% bind_tf_idf(word2, q2, n2) %>%
 
 # TODO: from here
 
-func <- function(x){
-  
-  # Boolean vector to subset the q2 for same id 
-  id_check <- x$id1[1] == tf_idf_q2$id2
-  
-  words1 <- x$word1
-  
-  words2 <- tf_idf_q2$word2[id_check]
-  
-  # List of common words in both
-  common <- intersect(words1, words2)
-  
-  # Words not present in question1
-  uncommon_q1 <- setdiff(words1, words2)
-  
-  # Words not present in question2
-  uncommon_q2 <- setdiff(words2, words1)
-  
-  len_common_words <- length(common)
-  
-  len_q1 <- nchar(x$q1[1])
-  len_q2 <- nchar(tf_idf_q2$q2[id_check][1])
-  
-  # Difference in length of characters
-  diff_len <- abs(len_q1 - len_q2)
-  
-  tfidf_wt1 <- x$tf_idf
-  tfidf_wt2 <- tf_idf_q2$tf_idf[id_check]
-  
-  # Calculate how similar both questions are based on tfidf weights
-  # 1. Positive effect for the common words
-  # 2. Negative exposure for the uncommon words
-  
-  w1_shared_wts <- tfidf_wt1[match(common, words1)]
-  w1_unshared_wts <- tfidf_wt1[match(uncommon.q1, words1)]
-  
-  w2_shared_wts <- tfidf_wt2[match(common, words2)]
-  w2_unshared_wts <- tfidf_wt2[match(uncommon.q2, words2)]
-  
-  ratio_commonality = (sum(c(w1_shared_wts,w2_shared_wts))-sum(c(w1_unshared_wts,w2_unshared_wts)))/(sum(tfidf_wt1, tfidf_wt2))
-  
-  # Return result as a list
-  return(list(len_common_words, ratio_commonality, diff_len))
-}
+ans <- df_idf_q1
 
-ans <- tf_idf_q1[ , c("len_common_words", 
-                      "ratio_commonality", 
-                      "diff_len") := func(.SD), 
-                  key = id1, 
-                  .SDcols = c(colnames(tf_idf_q1))]
+# ans <- tf_idf_q1[ , c("len_common_words", 
+#                       "ratio_commonality", 
+#                       "diff_len") := func(.SD), 
+#                   key = id1, 
+#                   .SDcols = c(colnames(tf_idf_q1))]
+
