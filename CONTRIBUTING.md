@@ -1,5 +1,0 @@
-# CONTRIBUTORS
-
-me
-
-others
