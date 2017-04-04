@@ -18,7 +18,7 @@ library(feather)
 # 1. Setups ---------------------------------------------------------------
 
 # 1.1. Path to data files
-path_data <- "../data/in/"
+path_data <- "data/in/"
 
 # 1.2. CSV file names
 fname_train_csv <- paste0(path_data, "train.csv")
