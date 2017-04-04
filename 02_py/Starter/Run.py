@@ -30,7 +30,7 @@ qids = pd.Series(df_train['qid1'].tolist() + df_train['qid2'].tolist())
 print('Total number of questions in the training data: {}'.format(len(np.unique(qids))))
 print('Number of questions that appear multiple times: {}'.format(np.sum(qids.value_counts() > 1)))
 
-# Histogram
+# Histogram drawing
 plt.figure(figsize=(12, 5))
 plt.hist(qids.value_counts(), bins=50)
 plt.yscale('log', nonposy='clip')
