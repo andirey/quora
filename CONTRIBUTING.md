@@ -1,5 +1,5 @@
 # Contributors
 
-me
+Andrii
 
-with changes
+Anyone
